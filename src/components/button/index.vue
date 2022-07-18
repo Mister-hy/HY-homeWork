@@ -2,7 +2,7 @@
   <button
     :disabled="disabled"
     class="hy-button"
-    :class="[style, isRadius, isBorder]"
+    :class="[style, isRadius, isBorder, isSize]"
   >
     <slot></slot>
   </button>
@@ -20,9 +20,14 @@ export default {
     // 禁用
     disabled: Boolean,
     // 圆角
-    Hyradius: Boolean,
+    radius: Boolean,
     // 边框
-    Hyborder: Boolean,
+    border: Boolean,
+    // 大小
+    size: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
     // 主题
@@ -31,11 +36,15 @@ export default {
     },
     // 圆角
     isRadius() {
-      return this.Hyradius ? "is-radius" : "";
+      return this.radius ? "is-radius" : "";
     },
     // 边框
     isBorder() {
-      return this.Hyborder ? "is-border" : "";
+      return this.border ? "is-border" : "";
+    },
+    // 大小
+    isSize() {
+      return this.size ? `hy-button-${this.size}` : "";
     },
   },
   data() {

@@ -61,3 +61,17 @@ $warning : #f56c6c;
 .is-radius {
   border-radius: 100px;
 }
+// size大小
+.hy-button-medium{
+  height : 38px;
+}
+.hy-button-small{
+  padding: 0 15px;
+  height: 32px;
+  font-size: 12px;
+}
+.hy-button-mini{
+  padding: 0 15px;
+  height: 28px;
+  font-size: 12px;
+}

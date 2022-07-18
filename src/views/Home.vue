@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <HyButton Hyradius>默认按钮</HyButton>
-    <HyButton type="primary" Hyborder >成功按钮</HyButton>
-    <HyButton type="danger" Hyradius>危险按钮</HyButton>
-    <HyButton type="warning" Hyborder>警告按钮</HyButton>
+    <HyButton radius>默认按钮</HyButton>
+    <HyButton type="primary" size="medium" border>成功按钮</HyButton>
+    <HyButton type="danger" size="small" radius>危险按钮</HyButton>
+    <HyButton type="warning" size="mini" border>警告按钮</HyButton>
   </div>
 </template>
 
