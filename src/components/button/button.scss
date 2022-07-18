@@ -1,0 +1,63 @@
+$primary : #409eff !default;
+$danger : #e6a23c;
+$success : #00d100;
+$warning : #f56c6c;
+.hy-button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dcdfe6;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #606266;
+  cursor: pointer;
+}
+// button组件封装 - 定义主题色
+.hy-button-primary {
+  background-color: #409eff;
+  border-color: #409eff;
+  color: #fff;
+  &.is-border{
+   background-color: transparent;
+   color: $primary;
+  }
+}
+.hy-button-success {
+  background-color: #00d100;
+  border-color: #00d100;
+  color: #fff;
+  &.is-border{
+    background-color: transparent;
+    color: $success;
+   }
+}
+.hy-button-danger {
+  background-color: #e6a23c;
+  border-color: #e6a23c;
+  color: #fff;
+  &.is-border{
+    background-color: transparent;
+    color: $danger;
+   }
+}
+.hy-button-warning {
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+  color: #fff;
+  &.is-border{
+    background-color: transparent;
+    color: $warning;
+   }
+}
+// css 属性选择器[]
+.hy-button[disabled] {
+  cursor: not-allowed;
+  // cursor: pointer;
+  opacity: 0.5;
+}
+// 圆角
+.is-radius {
+  border-radius: 100px;
+}
