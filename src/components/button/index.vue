@@ -1,7 +1,7 @@
 <template>
   <button
     :disabled="disabled"
-    class="hy-button hy-button-primary is-border is-radius"
+    class="hy-button"
     :class="[style, isRadius, isBorder]"
   >
     <slot></slot>
