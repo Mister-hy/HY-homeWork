@@ -1,59 +1,77 @@
 <template>
-  <button
-    :disabled="disabled"
-    class="hy-button"
-    :class="[style, isRadius, isBorder, isSize]"
-  >
-    <slot></slot>
+  <button @click="change" :disabled="disabled || loading " class="yang-button" :style="[minWidthCss]" :class="[theme, isRound, isBorder, isSize, blockCss]">
+    <span>
+      <i v-if="loading" class="iconfont icon-prefix icon-loading"></i>
+      <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
+        <slot></slot>
+      <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
+    </span>
   </button>
 </template>
 
 <script>
 export default {
-  name: "index",
+  name: 'index',
   props: {
-    // 主题
     type: {
       type: String,
-      default: "",
+      default: ''
     },
-    // 禁用
-    disabled: Boolean,
-    // 圆角
-    radius: Boolean,
-    // 边框
-    border: Boolean,
-    // 大小
+    minWidth: {
+      type: String,
+      default: '95px'
+    },
     size: {
       type: String,
-      default: "",
+      default: ''
     },
+    prefix: {
+      type: String,
+      default: ''
+    },
+    suffix: {
+      type: String,
+      default: ''
+    },
+    round: Boolean,
+    border: Boolean,
+    disabled: Boolean,
+    block: Boolean,
+    loading: Boolean
   },
   computed: {
-    // 主题
-    style() {
-      return this.type ? `hy-button-${this.type}` : "";
+    theme () {
+      return this.type ? `yang-button-${this.type}` : ''
     },
-    // 圆角
-    isRadius() {
-      return this.radius ? "is-radius" : "";
+    isRound () {
+      return this.round ? 'is-round' : ''
     },
-    // 边框
-    isBorder() {
-      return this.border ? "is-border" : "";
+    isBorder () {
+      return this.border ? 'is-border' : ''
     },
-    // 大小
-    isSize() {
-      return this.size ? `hy-button-${this.size}` : "";
+    isSize () {
+      return this.size ? `yang-button-${this.size}` : ''
     },
+    minWidthCss () {
+      if (!this.minWidth) return ''
+      return { 'min-width': this.minWidth }
+    },
+    iconPrefix () {
+      return this.prefix ? `icon-${this.prefix}` : ''
+    },
+    iconSuffix () {
+      return this.suffix ? `icon-${this.suffix}` : ''
+    },
+    blockCss () {
+      return this.block ? 'yang-button-block' : ''
+    }
   },
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {},
-  components: {},
-};
+  methods: {
+    change () {
+      this.$emit('click')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
